@@ -1,97 +1,117 @@
 <!DOCTYPE html>
-<html style="font-size: 59.0278px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <title>大发娱乐</title>
-    <meta name="keyword" content="大发娱乐">
-    <meta name="description" content="大发娱乐">
-    <link rel="stylesheet" href="./style/index.css">
-    <link rel="icon" href="./style/Icon-128.png"type="image/png"> 
+<html style="font-size: 59.0278px;">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	<title>大发娱乐</title>
+	<meta name="keyword" content="大发娱乐">
+	<meta name="description" content="大发娱乐">
+	<link rel="stylesheet" href="./style/index.css">
+	<link rel="icon" href="./style/Icon-128.png" type="image/png">
 </head>
+
 <body>
-<div class="container" id="pos">
-    <div class="bg">
-
-        <img class="img-responsive" src="./style/download.png">
-        
-    </div>
-</div>
-<div class="mask androidMask">
-	<img class="img-responsive" alt="" src="./style/androidmask.png">
-</div>
-<div class=" mask iosMask">
-	<img class="img-responsive" src="./style/iosmask.png" alt="">
-</div>
-<footer>
-</footer>
-<div class="dw_propt">
-    <div class="ppt_lt" id="ppt_lt">
-        <span class="img">
-            <img src="./style/Login_Logo.png" alt="">
-        </span>
-        <div class="lt_t">
-            <h3>大发娱乐</h3>
-            <span>秒速下载,流畅体验</span>
-        </div>
-        <a type="button" data-dl="" class="ppt_dw " id="down" href="javascript:;" download="img" style="visibility: visible;">免费下载</a>
-    </div>
-</div>
-<script>
-function is_weixin() {
-
-	var ua = navigator.userAgent.toLowerCase();
-	if (ua.match(/MicroMessenger/i) == "micromessenger") {
-		return true; 
-	} else {
-		return false;
-	}
- 
-}
- 
-function getQueryVariable(variable)
-{
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
-       }
-       return(false);
-}
-if(is_weixin()){
-	var pcode = getQueryVariable("pcode");
-	window.location.href="https://www.360917.com/tips.html"+(pcode==false?"":"?pcode="+pcode)
-}
-</script>
-<!-- openinstall 下载 --> 
-<script type="text/javascript" charset="UTF-8" src="https://res.cdn.openinstall.io/openinstall.js"></script>
-<script type="text/javascript">
-
-	var data = OpenInstall.parseUrlParams();
-	new OpenInstall({
-		appKey : "hthix0",
-		onready: function () {
-			var m = this;
-			//, button = document.getElementById("download");
-			var button2 = document.getElementById("down");
-			button2.style.visibility = "visible";
-
-			m.schemeWakeup();
-			button2.onclick = function(){
-				m.wakeupOrInstall();
+	<div class="container" id="pos">
+		<div class="bg">
+			<img class="img-responsive" src="./style/download.png">
+		</div>
+	</div>
+	<div class="mask androidMask">
+		<img class="img-responsive" alt="" src="./style/androidmask.png">
+	</div>
+	<div class=" mask iosMask">
+		<img class="img-responsive" src="./style/iosmask.png" alt="">
+	</div>
+	<footer>
+	</footer>
+	<div class="dw_propt">
+		<div class="ppt_lt" id="ppt_lt">
+			<span class="img">
+				<img src="./style/Login_Logo.png" alt="">
+			</span>
+			<div class="lt_t">
+				<h3>大发娱乐</h3>
+				<span>秒速下载,流畅体验</span>
+			</div>
+			<a type="button" data-dl="" class="ppt_dw " id="down" href="javascript:;" download="img"
+				style="visibility: visible;">免费下载</a>
+		</div>
+	</div>
+	<script>
+		function is_weixin() {
+			var ua = navigator.userAgent.toLowerCase();
+			if (ua.match(/MicroMessenger/i) == "micromessenger") {
+				return true;
+			} else {
 				return false;
 			}
-		//	button.onclick = function() {
-			//	m.wakeupOrInstall();
-				//return false;
-		//	}
 		}
-	}, data);
+
+		function getQueryVariable(variable) {
+			var query = window.location.search.substring(1);
+			var vars = query.split("&");
+			for (var i = 0; i < vars.length; i++) {
+				var pair = vars[i].split("=");
+				if (pair[0] == variable) { return pair[1]; }
+			}
+			return (false);
+		}
+		if (is_weixin()) {
+			var pcode = getQueryVariable("pcode");
+			var url = window.btoa(window.location.href)
+			window.location.href = "https://www.360917.com/tips.html?redirect="+url
+		}
+	</script>
+	<!-- openinstall 下载 -->
+	<script type="text/javascript" charset="UTF-8" src="https://res.cdn.openinstall.io/openinstall.js"></script>
+	<script type="text/javascript">
+		var domain = window.location.host;
+		var data = OpenInstall.parseUrlParams();
+
+		if (domain.indexOf("212057.com") >= 0) {
+			data.referCode = "212057";
+		}
+		if (domain.indexOf("12061.com") >= 0) {
+			data.referCode = "12061";
+		}
+		if (domain.indexOf("212073.com") >= 0) {
+			data.referCode = "212073";
+		}
+    	if (domain.indexOf("360917.com") >= 0) {
+			data.referCode = "360917";
+		}
+
+		new OpenInstall({
+			appKey: "hthix0",
+			onready: function () {
+				var m = this;
+				var button = document.getElementById("down");
+				button.style.visibility = "visible";
+
+				m.schemeWakeup();
+				button.onclick = function () {
+					m.wakeupOrInstall();
+					return false;
+				}
+
+				setTimeout(() => {
+					m.wakeupOrInstall();
+				}, 3000)
+			}
+		}, data);
 
 
-</script>
+	</script>
 
-<script type="text/javascript" src="./style/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="./style/pub_rem.js"></script>
-</body></html>
+	<script type="text/javascript" src="./style/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="./style/pub_rem.js"></script>
+	
+	<!-- Webchat在线客服图标:默认图标[浮动图标]开始-->
+<div style='display:none;'><a href='https://www.webchat.com'>web聊天</a></div><script language="javascript" src="https://eyelet.trimusco.com/chat/chatClient/floatButton.js?jid=4607501255&companyID=5015957&configID=10106&codeType=custom&ss=1"></script><div style='display:none;'><a href='https://en.webchat.com'>live chat</a></div>
+<!-- 在线客服图标:默认图标结束-->
+</body>
+
+</html>
