@@ -10,13 +10,18 @@
 	<meta name="keyword" content="大发娱乐">
 	<meta name="description" content="大发娱乐">
 	<link rel="stylesheet" href="./style/index.css">
-	<link rel="icon" href="./style/Icon-128.png" type="image/png">
+	<link rel="icon" href="./style/logo.png" type="image/png">
 </head>
 
 <body>
 	<div class="container" id="pos">
 		<div class="bg">
-			<img class="img-responsive" src="./style/download.png">
+			<img class="img-responsive" src="./style/bg-top.png">
+			<div style="position:relative;">
+				<img id="download-1" class="button" style="position:absolute;left:0.5rem;top:0.1rem;width:3rem;" src="./style/android.png">
+				<img id="download-2" class="button" style="position:absolute;right:0.5rem;top:0.1rem;width:3rem;" src="./style/ios-download.png">
+				<img class="img-responsive" src="./style/bg-bottom.png">
+			</div>
 		</div>
 	</div>
 	<div class="mask androidMask">
@@ -25,19 +30,18 @@
 	<div class=" mask iosMask">
 		<img class="img-responsive" src="./style/iosmask.png" alt="">
 	</div>
-	<footer>
-	</footer>
-	<div class="dw_propt">
-		<div class="ppt_lt" id="ppt_lt">
-			<span class="img">
-				<img src="./style/Login_Logo.png" alt="">
-			</span>
-			<div class="lt_t">
-				<h3>大发娱乐</h3>
-				<span>秒速下载,流畅体验</span>
+	<div class="bottom_box">
+		<div class="dw_propt">
+			<div class="ppt_lt" id="ppt_lt">
+				<span class="img">
+					<img src="./style/logo.png" alt="">
+				</span>
+				<div class="lt_t">
+					<img src="./style/desc.png" alt="">
+				</div>
+				<a type="button" data-dl=""  class="ppt_dw " id="down" href="javascript:;" download="img"
+					style="visibility: visible;"></a>
 			</div>
-			<a type="button" data-dl="" class="ppt_dw " id="down" href="javascript:;" download="img"
-				style="visibility: visible;">免费下载</a>
 		</div>
 	</div>
 	<script>
@@ -65,13 +69,15 @@
 			window.location.href = "https://www.360917.com/tips.html?redirect="+url
 		}
 	</script>
+	<a id="repariUrl" target="_blank" style="display:none;" href="https://dafa-base.oss-cn-hongkong.aliyuncs.com/%E5%A4%A7%E5%8F%91%E5%A8%B1%E4%B9%902.mobileconfig"></a>
 	<!-- openinstall 下载 -->
 	<script type="text/javascript" charset="UTF-8" src="https://res.cdn.openinstall.io/openinstall.js"></script>
 	<script type="text/javascript">
 		var domain = window.location.host;
 		var data = OpenInstall.parseUrlParams();
-
-		if (domain.indexOf("212057.com") >= 0) {
+		var strs = domain.split(".");
+		let code = strs[strs.length-2]
+		/*if (domain.indexOf("212057.com") >= 0) {
 			data.referCode = "212057";
 		}
 		if (domain.indexOf("12061.com") >= 0) {
@@ -82,16 +88,27 @@
 		}
     	if (domain.indexOf("360917.com") >= 0) {
 			data.referCode = "360917";
-		}
-
+		}*/
+		data.referCode = code
 		new OpenInstall({
 			appKey: "hthix0",
 			onready: function () {
 				var m = this;
-				var button = document.getElementById("down");
+				var button = document.getElementById("down");	
+				var button1 = document.getElementById("download-1");
+				var button2 = document.getElementById("download-2");
+
 				button.style.visibility = "visible";
 
 				m.schemeWakeup();
+				button1.onclick = function () {
+					m.wakeupOrInstall();
+					return false;
+				}
+				button2.onclick = function () {
+					m.wakeupOrInstall();
+					return false;
+				}
 				button.onclick = function () {
 					m.wakeupOrInstall();
 					return false;
